@@ -142,6 +142,19 @@ for (i = 0; i < db_result.length; i++) {
   }
 }
 
+var compiledjson = { test: "test" };
+var templateRenderd = {};
+var templateText = JSONCardTemplate;
+for (i = 0; i < db_result.length; i++) {
+  var McurrentObject = db_result[i];
+  for (j = 0; j < lookup.length; j++) {
+    templateText = templateText.replace(lookup[j], McurrentObject[j]);
+  }
+}
+
+templateRenderd = JSON.parse(templateText);
+compiledjson = templateRenderd;
+
 const App = () => (
   <div>
     blogposts:
@@ -151,7 +164,7 @@ const App = () => (
     viewsoroginal-template:
     <JSONPretty json={JSON.parse(JSONCardTemplate)} />
     view-afterreplacement:
-    <JSONPretty json={JSON.parse(JSONMenu)} />
+    <JSONPretty json={compiledjson} />
   </div>
 );
 
