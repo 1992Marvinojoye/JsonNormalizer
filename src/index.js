@@ -148,6 +148,10 @@ const App = () => (
     <JSONPretty json={blogposts} />
     normalized blogposts:
     <JSONPretty json={normalizedBlogposts} />
+    viewsoroginal-template:
+    <JSONPretty json={JSON.parse(JSONCardTemplate)} />
+    view-afterreplacement:
+    <JSONPretty json={JSON.parse(JSONMenu)} />
   </div>
 );
 
