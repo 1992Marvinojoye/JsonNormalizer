@@ -132,8 +132,7 @@ const App = () => (
     <JSONPretty json={compiledjson} />
     <pre>
       <code>
-        {`
-    var db_object1 = [
+        {`var db_object1 = [
   "https://www.infinit.cx/wp-content/uploads/2021/11/TarrifPlan_CosmosDB-e1636461060455.png",
   "4EVERjoung S ©",
   "25 MBit",
@@ -215,15 +214,12 @@ for (var i = 0; i < db_result.length; i++) {
 templateRenderd = JSON.parse(templateText);
 compiledjson = templateRenderd;
 
-console.log(JSON.stringify(JSONCardTemplate,null,2));
-//Result of var JSONCardTemplate :
-//console.log(JSON.stringify(JSONCardTemplate,null,2));
+//Resualt of compiledjson console.log(JSON.stringify(JSONCardTemplate,null,2)); :
 /*
 ${JSON.stringify(JSON.parse(JSONCardTemplate), null, 2)}
 */
 console.log(JSON.stringify(compiledjson,null,2));
-//Result of var compiledjson :
-//console.log(JSON.stringify(compiledjson,null,2));
+//Resualt of compiledjson console.log(JSON.stringify(compiledjson,null,2)); :
 /*
 ${JSON.stringify(compiledjson, null, 2)}
 */
