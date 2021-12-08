@@ -201,11 +201,7 @@ var lookup = [
   "#TariffSelectCallback"
 ];
 
-var JSONCardTemplate = '${JSON.stringify(
-          JSON.parse(JSONCardTemplate),
-          null,
-          2
-        )}';
+var JSONCardTemplate = '${JSON.stringify(JSON.parse(JSONCardTemplate))}';
 var compiledjson = { test: "test" };
 var templateRenderd = {};
 var templateText = JSONCardTemplate;
@@ -219,14 +215,14 @@ for (var i = 0; i < db_result.length; i++) {
 templateRenderd = JSON.parse(templateText);
 compiledjson = templateRenderd;
 
-
+//Resualt of compiledjson console.log(JSON.stringify(JSONCardTemplate,null,2)); :
+/*
+${JSON.stringify(JSON.parse(JSONCardTemplate), null, 2)}
+*/
 console.log(JSON.stringify(compiledjson,null,2));
 //Resualt of compiledjson console.log(JSON.stringify(compiledjson,null,2)); :
 /*
-${JSON.stringify(compiledjson,
-  null,
-  2
-)}
+${JSON.stringify(compiledjson, null, 2)}
 */
 `}
       </code>
