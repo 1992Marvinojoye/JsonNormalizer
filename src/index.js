@@ -215,12 +215,14 @@ for (var i = 0; i < db_result.length; i++) {
 templateRenderd = JSON.parse(templateText);
 compiledjson = templateRenderd;
 
-//Resualt of compiledjson console.log(JSON.stringify(JSONCardTemplate,null,2)); :
+//Result of var JSONCardTemplate :
+//console.log(JSON.stringify(JSONCardTemplate,null,2));
 /*
 ${JSON.stringify(JSON.parse(JSONCardTemplate), null, 2)}
 */
 console.log(JSON.stringify(compiledjson,null,2));
-//Resualt of compiledjson console.log(JSON.stringify(compiledjson,null,2)); :
+//Result of var compiledjson :
+//console.log(JSON.stringify(compiledjson,null,2));
 /*
 ${JSON.stringify(compiledjson, null, 2)}
 */
