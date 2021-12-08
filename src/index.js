@@ -130,8 +130,9 @@ const App = () => (
     <JSONPretty json={JSON.parse(JSONCardTemplate)} />
     view-afterreplacement:
     <JSONPretty json={compiledjson} />
-    <pre><code>
-{`
+    <pre>
+      <code>
+        {`
     var db_object1 = [
   "https://www.infinit.cx/wp-content/uploads/2021/11/TarrifPlan_CosmosDB-e1636461060455.png",
   "4EVERjoung S ©",
@@ -200,7 +201,11 @@ var lookup = [
   "#TariffSelectCallback"
 ];
 
-var JSONCardTemplate = {  'type': 'vertical',   'elements': [     {        'type':'horizontal',        'border':'borderLess',        'percentages': [70, 30],        'elements':[          {            'type':'text',            'text':'',            'style':{              'size':'small'              }            },          {            'type':'image',            'url':'#imageTop',            'style':{}            }          ]       },     {       'type':'horizontal',       'border':'borderLess',       'percentages': [100, 0],       'elements':[         {           'type':'text',           'text':'#packName',           'style':{             'size':'small'            }           }       ]     },     {       'type':'horizontal',       'border':'borderLess',       'percentages': [100, 0],       'elements':[         {           'type':'text',           'text':'#unitSize',           'style':{             'bold': true,             'size':'medium'             }           }         ]       },     {       'type':'horizontal',       'border':'borderLess',       'percentages': [100, 0],       'elements':[         {       'type': 'text',       'text': '<p>✔️#info1</p><p>✔️#info2<p>',       'style':{         'size':'small'       }     }         ]       },               {       'type':'horizontal',       'border':'dropShadow',       'percentages': [100, 0],       'elements':[         {           'title': 'Tarifdetails',       'type': 'button',       'click': {         'actions': [           {             'type': 'link',             'uri': '#tariffDetailLink',             'target':'blank'           }         ]       },       'tooltip': 'Click me!',       'style':{         'background-color': 'white',         'color':'#007A87',         'size':'small'       }         },         {           'type':'image',           'url':'https://www.infinit.cx/wp-content/uploads/2021/11/Blank_CosmosDB-e1636033394688.png'         }       ]     },     {       'type':'text',       'text':'',       'style':{         'size':'small'       }     },     {       'type':'horizontal',       'border':'dropShadow',       'percentages': [100, 0],       'elements':[         {           'title': 'Produktinformationen (PDF)',       'type':'button',       'style':{         'color':'#007A87',         'background-color':'white',         'size':'small'       },       'click':{         'actions':[           {             'type':'link',             'uri':'#productInfoLink'           }         ]       }         },         {           'type':'image',           'url':'https://www.infinit.cx/wp-content/uploads/2021/11/Blank_CosmosDB-e1636033394688.png'         }       ]     },     {       'type':'text',       'text':''     },     {       'type':'horizontal',       'border': 'borderLess',       'percentages': [60, 40],       'elements':[         {           'type':'text',           'text':'',           'style':{             'size':'large',             'color':'#7AB800'            }           },         {           'type':'text',           'tag': 'Mavin',           'text':'#packCost',           'style':{             'size':'medium',             'color':'#7AB800'            }         }         ]     },     {       'type':'horizontal',       'border':'borderLess',       'percentages': [100, 0],       'elements':[         {           'type':'text',           'text':'#runTime',           'style':{             'size':'small'             }           }         ]     }     ,     {       'type':'horizontal',       'border':'borderLess',       'percentages': [100, 0],       'elements':[         {           'type':'text',           'text':'#subscriptionCost',           'style':{             'size':'small'             }           }         ]       },     {       'type': 'button',       'title': 'Tarif auswählen',       'click': {         'actions':[           {             'type':'link',             'uri':'#TariffSelectCallback',             'target':'blank'           }         ]       },       'style':{         'background-color':'#7AB800',         'bold':true,         'color':'black',         'size':'small'       }     }   ] }";
+var JSONCardTemplate = '${JSON.stringify(
+          JSON.parse(JSONCardTemplate),
+          null,
+          2
+        )}';
 var compiledjson = { test: "test" };
 var templateRenderd = {};
 var templateText = JSONCardTemplate;
@@ -213,8 +218,19 @@ for (var i = 0; i < db_result.length; i++) {
 
 templateRenderd = JSON.parse(templateText);
 compiledjson = templateRenderd;
+
+
+console.log(JSON.stringify(compiledjson,null,2));
+//Resualt of compiledjson console.log(JSON.stringify(compiledjson,null,2)); :
+/*
+${JSON.stringify(compiledjson,
+  null,
+  2
+)}
+*/
 `}
-    </code></pre>
+      </code>
+    </pre>
   </div>
 );
 
