@@ -215,6 +215,7 @@ for (var i = 0; i < db_result.length; i++) {
 templateRenderd = JSON.parse(templateText);
 compiledjson = templateRenderd;
 
+console.log(JSON.stringify(JSONCardTemplate,null,2));
 //Result of var JSONCardTemplate :
 //console.log(JSON.stringify(JSONCardTemplate,null,2));
 /*
