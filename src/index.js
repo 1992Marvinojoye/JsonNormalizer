@@ -109,15 +109,17 @@ var JSONCardTemplate = `{  "type": "vertical",   "elements": [     {        "typ
 
 var compiledjson = { test: "test" };
 var templateRenderd = {};
+var viewcardOBJs = [];
 var templateText = JSONCardTemplate;
 for (var i = 0; i < db_result.length; i++) {
   var currentObject = db_result[i];
   for (var j = 0; j < lookup.length; j++) {
     templateText = templateText.replace(lookup[j], currentObject[j]);
   }
+  viewcardOBJs.push(JSON.parse(templateText));
 }
 
-templateRenderd = JSON.parse(templateText);
+templateRenderd = JSON.parse(JSON.stringify(viewcardOBJs));
 compiledjson = templateRenderd;
 
 const App = () => (
@@ -203,15 +205,17 @@ var lookup = [
 var JSONCardTemplate = '${JSON.stringify(JSON.parse(JSONCardTemplate))}';
 var compiledjson = { test: "test" };
 var templateRenderd = {};
+var viewcardOBJs = [];
 var templateText = JSONCardTemplate;
 for (var i = 0; i < db_result.length; i++) {
   var currentObject = db_result[i];
   for (var j = 0; j < lookup.length; j++) {
     templateText = templateText.replace(lookup[j], currentObject[j]);
   }
+  viewcardOBJs.push(JSON.parse(templateText));
 }
 
-templateRenderd = JSON.parse(templateText);
+templateRenderd = JSON.parse(JSON.stringify(viewcardOBJs));
 compiledjson = templateRenderd;
 
 //Resualt of compiledjson console.log(JSON.stringify(JSONCardTemplate,null,2)); :
