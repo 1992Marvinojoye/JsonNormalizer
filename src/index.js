@@ -228,6 +228,350 @@ console.log(JSON.stringify(compiledjson,null,2));
 ${JSON.stringify(compiledjson, null, 2)}
 */
 `}
+<pre><code>
+{`var JSONCardTemplate = botContext.getEnvVariable("JSONCardTemplate");
+var JSONMenu = "";
+
+// fromCosmosDB <<[ var JSONCardTemplate = botContext.getEnvVariable("JSONCardTemplate"); ]>>
+var DBVerticalCardTemplate = {
+  "type": "vertical",
+  "elements": [
+    {
+      "type": "horizontal",
+      "border": "borderLess",
+      "percentages": [
+        70,
+        30
+      ],
+      "elements": [
+        {
+          "type": "text",
+          "text": "",
+          "style": {
+            "size": "small"
+          }
+        },
+        {
+          "type": "image",
+          "url": "#imageTop",
+          "style": {}
+        }
+      ]
+    },
+    {
+      "type": "horizontal",
+      "border": "borderLess",
+      "percentages": [
+        100,
+        0
+      ],
+      "elements": [
+        {
+          "type": "text",
+          "text": "#packName",
+          "style": {
+            "size": "small"
+          }
+        }
+      ]
+    },
+    {
+      "type": "horizontal",
+      "border": "borderLess",
+      "percentages": [
+        100,
+        0
+      ],
+      "elements": [
+        {
+          "type": "text",
+          "text": "#unitSize",
+          "style": {
+            "bold": true,
+            "size": "medium"
+          }
+        }
+      ]
+    },
+    {
+      "type": "horizontal",
+      "border": "borderLess",
+      "percentages": [
+        100,
+        0
+      ],
+      "elements": [
+        {
+          "type": "text",
+          "text": "<p>✔️#info1</p><p>✔️#info2<p>",
+          "style": {
+            "size": "small"
+          }
+        }
+      ]
+    },
+    {
+      "type": "horizontal",
+      "border": "dropShadow",
+      "percentages": [
+        100,
+        0
+      ],
+      "elements": [
+        {
+          "title": "Tarifdetails",
+          "type": "button",
+          "click": {
+            "actions": [
+              {
+                "type": "link",
+                "uri": "#tariffDetailLink",
+                "target": "blank"
+              }
+            ]
+          },
+          "tooltip": "Click me!",
+          "style": {
+            "background-color": "white",
+            "color": "#007A87",
+            "size": "small"
+          }
+        },
+        {
+          "type": "image",
+          "url": "https://www.infinit.cx/wp-content/uploads/2021/11/Blank_CosmosDB-e1636033394688.png"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "",
+      "style": {
+        "size": "small"
+      }
+    },
+    {
+      "type": "horizontal",
+      "border": "dropShadow",
+      "percentages": [
+        100,
+        0
+      ],
+      "elements": [
+        {
+          "title": "Produktinformationen (PDF)",
+          "type": "button",
+          "style": {
+            "color": "#007A87",
+            "background-color": "white",
+            "size": "small"
+          },
+          "click": {
+            "actions": [
+              {
+                "type": "link",
+                "uri": "#productInfoLink"
+              }
+            ]
+          }
+        },
+        {
+          "type": "image",
+          "url": "https://www.infinit.cx/wp-content/uploads/2021/11/Blank_CosmosDB-e1636033394688.png"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": ""
+    },
+    {
+      "type": "horizontal",
+      "border": "borderLess",
+      "percentages": [
+        60,
+        40
+      ],
+      "elements": [
+        {
+          "type": "text",
+          "text": "",
+          "style": {
+            "size": "large",
+            "color": "#7AB800"
+          }
+        },
+        {
+          "type": "text",
+          "tag": "Mavin",
+          "text": "#packCost",
+          "style": {
+            "size": "medium",
+            "color": "#7AB800"
+          }
+        }
+      ]
+    },
+    {
+      "type": "horizontal",
+      "border": "borderLess",
+      "percentages": [
+        100,
+        0
+      ],
+      "elements": [
+        {
+          "type": "text",
+          "text": "#runTime",
+          "style": {
+            "size": "small"
+          }
+        }
+      ]
+    },
+    {
+      "type": "horizontal",
+      "border": "borderLess",
+      "percentages": [
+        100,
+        0
+      ],
+      "elements": [
+        {
+          "type": "text",
+          "text": "#subscriptionCost",
+          "style": {
+            "size": "small"
+          }
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "title": "Tarif auswählen",
+      "click": {
+        "actions": [
+          {
+            "type": "link",
+            "uri": "#TariffSelectCallback",
+            "target": "blank"
+          }
+        ]
+      },
+      "style": {
+        "background-color": "#7AB800",
+        "bold": true,
+        "color": "black",
+        "size": "small"
+      }
+    }
+  ]
+};
+
+// fromCosmosDB
+var DBlookupModel = {
+  "imageTop":"#imageTop",
+  "packName":"#packName",
+  "unitSize":"#unitSize",
+  "info1":"#info1",
+  "info2":"#info2",
+  "tariffDetailLink":"#tariffDetailLink",
+  "productInfoLink":"#productInfoLink",
+  "packCost":"#packCost",
+  "runTime":"#runTime",
+  "subscriptionCost":"#subscriptionCost",
+  "TariffSelectCallback":"#TariffSelectCallback"
+};
+
+// var lookup = Object.values(DBlookupModel);
+
+// fromCosmosDB
+var DBVerticalcardsModels = [
+  {
+    "imageTop":"#imageTop",
+    "packName":"#packName",
+    "unitSize":"#unitSize",
+    "info1":"#info1",
+    "info2":"#info2",
+    "tariffDetailLink":"#tariffDetailLink",
+    "productInfoLink":"#productInfoLink",
+    "packCost":"#packCost",
+    "runTime":"#runTime",
+    "subscriptionCost":"#subscriptionCost",
+    "TariffSelectCallback":"#TariffSelectCallback"
+  },
+  {
+    "imageTop":"#imageTop",
+    "packName":"#packName",
+    "unitSize":"#unitSize",
+    "info1":"#info1",
+    "info2":"#info2",
+    "tariffDetailLink":"#tariffDetailLink",
+    "productInfoLink":"#productInfoLink",
+    "packCost":"#packCost",
+    "runTime":"#runTime",
+    "subscriptionCost":"#subscriptionCost",
+    "TariffSelectCallback":"#TariffSelectCallback"
+  },
+  {
+    "imageTop":"#imageTop",
+    "packName":"#packName",
+    "unitSize":"#unitSize",
+    "info1":"#info1",
+    "info2":"#info2",
+    "tariffDetailLink":"#tariffDetailLink",
+    "productInfoLink":"#productInfoLink",
+    "packCost":"#packCost",
+    "runTime":"#runTime",
+    "subscriptionCost":"#subscriptionCost",
+    "TariffSelectCallback":"#TariffSelectCallback"
+  },
+  {
+    "imageTop":"#imageTop",
+    "packName":"#packName",
+    "unitSize":"#unitSize",
+    "info1":"#info1",
+    "info2":"#info2",
+    "tariffDetailLink":"#tariffDetailLink",
+    "productInfoLink":"#productInfoLink",
+    "packCost":"#packCost",
+    "runTime":"#runTime",
+    "subscriptionCost":"#subscriptionCost",
+    "TariffSelectCallback":"#TariffSelectCallback"
+  }
+];
+
+/*
+var db_result  = [];
+for (var i = 0; i < DBVerticalcardsModels.length; i++) {
+  var currentModel = DBVerticalcardsModels[i];
+  db_result.push([Object.values(currentModel)]);
+}
+*/
+
+// new Algorithm 
+/* 
+var compiledjson = {};
+var templateRenderd = {};
+var viewcardOBJs = [];
+var templateText = JSONCardTemplate;
+for (var i = 0; i < db_result.length; i++) {
+  var currentObject = db_result[i];
+  for (var j = 0; j < lookup.length; j++) {
+    templateText = templateText.replace(lookup[j], currentObject[j]);
+  }
+  viewcardOBJs.push(JSON.parse(templateText));
+}
+
+templateRenderd = JSON.parse(JSON.stringify(viewcardOBJs));
+compiledjson = templateRenderd;
+
+var compiledViewString = JSON.stringify(compiledjson);
+
+botContext.printDebugMessage("JSONMenu" + compiledViewString);
+botContext.setBotVariable("JSONMenu", compiledViewString, true, false);
+*/`}
+</code></pre>
       </code>
     </pre>
   </div>
