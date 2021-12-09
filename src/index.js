@@ -228,6 +228,10 @@ console.log(JSON.stringify(compiledjson,null,2));
 ${JSON.stringify(compiledjson, null, 2)}
 */
 `}
+      </code>
+    </pre>
+Predefinition DB Card Models for Pullock:
+https://livepersoninc.github.io/json-pollock/editor/
 <pre><code>
 {`var JSONCardTemplate = botContext.getEnvVariable("JSONCardTemplate");
 var JSONMenu = "";
@@ -572,8 +576,6 @@ botContext.printDebugMessage("JSONMenu" + compiledViewString);
 botContext.setBotVariable("JSONMenu", compiledViewString, true, false);
 */`}
 </code></pre>
-      </code>
-    </pre>
   </div>
 );
 
